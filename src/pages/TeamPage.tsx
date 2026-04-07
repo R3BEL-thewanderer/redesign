@@ -105,7 +105,7 @@ export default function TeamPage() {
 
       {/* Team Sections */}
       <section className="py-10 px-6 max-w-6xl mx-auto space-y-20">
-        {teamSections.map((section, sectionIdx) => (
+        {teamSections.map((section) => (
           <motion.div
             key={section.title}
             initial={{ opacity: 0, y: 30 }}

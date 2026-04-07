@@ -238,7 +238,6 @@ export default function TicketsPage() {
                 <div className={`p-8 flex flex-col flex-1 ${tier.popular ? 'pt-10' : ''}`}>
                   {/* Tier info */}
                   <div className="text-center mb-6">
-                    <span className="text-4xl mb-3 block">{tier.emoji}</span>
                     <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
                     <div className="flex items-baseline justify-center gap-1">
                       <span className="text-4xl md:text-5xl font-bold text-white">{tier.price}</span>
