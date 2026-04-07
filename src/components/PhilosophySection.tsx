@@ -1,9 +1,12 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 export default function PhilosophySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const videoId = 'R9j0Y7P7x5Y';
 
   return (
     <section className="bg-transparent py-28 md:py-40 px-6 overflow-hidden flex justify-center">
@@ -23,16 +26,35 @@ export default function PhilosophySection() {
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.8 }}
-            className="rounded-3xl overflow-hidden aspect-[4/3] relative w-full pointer-events-none"
+            className="rounded-3xl overflow-hidden aspect-[4/3] relative w-full"
           >
-            <iframe
-              className="w-full h-full object-cover"
-              src="https://www.youtube.com/embed/R9j0Y7P7x5Y?autoplay=1&mute=1&loop=1&playlist=R9j0Y7P7x5Y&controls=0&showinfo=0&rel=0"
-              title="TEDx Talk 2"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {isPlaying ? (
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&modestbranding=1`}
+                title="TEDx Talk 2"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                onClick={() => setIsPlaying(true)}
+                className="w-full h-full relative group cursor-pointer"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                  alt="TEDxTCET Talk"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-[#eb0028] flex items-center justify-center shadow-2xl shadow-[#eb0028]/40 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-0 h-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-white ml-1" />
+                  </div>
+                </div>
+              </button>
+            )}
           </motion.div>
 
           <motion.div

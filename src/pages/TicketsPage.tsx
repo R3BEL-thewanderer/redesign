@@ -373,12 +373,13 @@ export default function TicketsPage() {
 
       {/* ===== TICKET PREVIEW MODAL ===== */}
       {selectedTicket && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-xl bg-black/40">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 backdrop-blur-xl bg-black/60" onClick={() => setSelectedTicket(null)}>
            <motion.div 
              initial={{ opacity: 0, scale: 0.95, y: 20 }}
              animate={{ opacity: 1, scale: 1, y: 0 }}
              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-             className="relative w-full max-w-5xl liquid-glass bg-[#050510]/40 rounded-[2rem] shadow-2xl flex flex-col md:flex-row max-h-[90vh] overflow-hidden border border-white/10"
+             onClick={(e) => e.stopPropagation()}
+             className="relative w-full max-w-5xl liquid-glass bg-[#050510]/90 rounded-2xl md:rounded-[2rem] shadow-2xl flex flex-col md:flex-row h-[95vh] md:h-auto md:max-h-[85vh] overflow-hidden border border-white/10"
            >
               {/* Close Button */}
               <button 
@@ -390,7 +391,7 @@ export default function TicketsPage() {
               </button>
 
               {/* Left Side: Live Ticket Preview */}
-              <div className="w-full md:w-[45%] p-6 md:p-10 relative border-b md:border-b-0 md:border-r border-white/10 overflow-y-auto">
+              <div className="w-full md:w-[45%] p-5 md:p-10 relative border-b md:border-b-0 md:border-r border-white/10 overflow-y-auto flex-shrink-0 md:flex-shrink md:max-h-full">
                   {/* Header label */}
                   <p className="text-[#eb0028] text-[10px] tracking-[0.25em] uppercase font-medium mb-4">
                     TEDxTCET 2025 — Live Preview
@@ -414,7 +415,7 @@ export default function TicketsPage() {
 
                   {/* Price */}
                   <div className="mb-1">
-                    <span className="text-5xl md:text-6xl font-bold text-white font-display">{selectedTicket.price}</span>
+                    <span className="text-4xl md:text-6xl font-bold text-white font-display">{selectedTicket.price}</span>
                   </div>
                   <p className="text-white/40 text-sm mb-8">per person · all inclusive</p>
 
@@ -457,8 +458,8 @@ export default function TicketsPage() {
               </div>
 
               {/* Right Side: What's Included + Purchase */}
-              <div className="w-full md:w-[55%] flex flex-col h-full max-h-[90vh]">
-                 <div className="p-6 md:p-10 pb-6 flex-1 overflow-y-auto min-h-0">
+              <div className="w-full md:w-[55%] flex flex-col min-h-0 flex-1">
+                 <div className="p-5 md:p-10 pb-4 flex-1 overflow-y-auto min-h-0">
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 font-display">What's Included</h3>
                     
                     <div className="space-y-6">
@@ -526,7 +527,7 @@ export default function TicketsPage() {
                  </div>
 
                  {/* Bottom CTA */}
-                 <div className="p-6 md:p-10 pt-4 border-t border-white/5">
+                 <div className="p-5 md:p-10 pt-4 border-t border-white/5 flex-shrink-0">
                    <p className="text-[#eb0028] text-[10px] font-medium tracking-widest uppercase mb-4 text-center">
                      * Tickets Once Purchased Cannot be Refunded
                    </p>

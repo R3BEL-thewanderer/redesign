@@ -22,8 +22,9 @@ function DynamicBackground() {
   return (
     <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none bg-[#050510]">
       <img 
-        src="/Hero_Section-image.png" 
+        src="/Hero_Section-image.webp" 
         alt="Background" 
+        loading="lazy"
         className="absolute inset-0 w-full h-full object-cover opacity-50"
       />
       <div className="absolute inset-0 bg-black/40" />
