@@ -457,8 +457,8 @@ export default function TicketsPage() {
               </div>
 
               {/* Right Side: What's Included + Purchase */}
-              <div className="w-full md:w-[55%] flex flex-col h-full overflow-y-auto">
-                 <div className="p-6 md:p-10 pb-4 flex-1">
+              <div className="w-full md:w-[55%] flex flex-col h-full max-h-[90vh]">
+                 <div className="p-6 md:p-10 pb-6 flex-1 overflow-y-auto min-h-0">
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 font-display">What's Included</h3>
                     
                     <div className="space-y-6">
