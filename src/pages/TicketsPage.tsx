@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -163,6 +163,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function TicketsPage() {
   const [selectedTicket, setSelectedTicket] = useState<typeof ticketTiers[0] | null>(null);
+
+  useEffect(() => {
+    if (selectedTicket) {
+      document.body.classList.add('hide-navbar', 'overflow-hidden');
+    } else {
+      document.body.classList.remove('hide-navbar', 'overflow-hidden');
+    }
+    return () => document.body.classList.remove('hide-navbar', 'overflow-hidden');
+  }, [selectedTicket]);
 
   return (
     <div className="min-h-screen pt-20 page-enter">
