@@ -27,7 +27,7 @@ export default function AboutSection() {
         >
           In the spirit of <em className="font-[Instrument_Serif] italic text-[#eb0028]">ideas</em>
           <br className="hidden md:block" />
-          worth spreading.
+          {' '}worth spreading.
         </motion.h2>
 
         <motion.p

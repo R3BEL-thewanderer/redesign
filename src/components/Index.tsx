@@ -34,12 +34,14 @@ export default function IndexHero() {
         muted
         autoPlay
         playsInline
+        loop
         preload="auto"
+        poster="/Hero_Section-image.webp"
         src="/Hero_Section-video.mp4"
       />
       
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+      {/* Dark overlay for better navbar readability */}
+      <div className="absolute inset-0 bg-black/10 md:bg-black/20 pointer-events-none" />
     </section>
   );
 }
